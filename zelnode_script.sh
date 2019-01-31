@@ -60,6 +60,7 @@ sudo apt-get install libzmq3-dev -y
 sudo apt-get install autoconf -y
 sudo apt-get install automake -y
 sudo apt-get install unzip -y
+sudo apt-get install figlet toilet -y
 sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 sudo apt-get install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5 -y
@@ -214,6 +215,8 @@ sleep 30
 echo "Starting your ZELNODE with final details"
 
 $COIN_DAEMON -daemon
+
+figlet ZELNODE
 
 echo "============================================================================="
 echo "COPY THIS TO LOCAL WALLET CONFIG FILE AND REPLACE TxID and OUTPUT"
