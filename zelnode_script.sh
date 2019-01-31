@@ -109,7 +109,7 @@ sudo wget -U Mozilla/5.0 $WALLET_DOWNLOAD
 
 $ZIPTAR $WALLET_TAR_FILE
 cd $EXTRACT_DIR
-rm /usr/bin/fetch-params.sh
+sudo rm /root/linux/fetch-params.sh
 sudo chmod +x $COIN_CLI $COIN_DAEMON $COIN_TX
 cp $COIN_CLI $COIN_DAEMON $COIN_TX $COIN_PATH
 sudo chmod +× /usr/bin/zelcash*
