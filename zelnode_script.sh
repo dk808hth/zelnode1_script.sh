@@ -22,8 +22,8 @@ ADDNODE7='node-asia.zelcash.com'
 PORT='16125'
 RPCPORT='16124'
 
-BOOTSTRAP='https://www.dropbox.com/s/raw/n9ajrps2smhdj2s/zelcash-bootstrap.zip'
-BOOTSTRAP_ZIP='zelcash-bootstrap.zip'
+BOOTSTRAP='https://www.dropbox.com/s/raw/ic1iiig8dabyuf1/zelcash-bootstrap262k.zip'
+BOOTSTRAP_ZIP='zelcash-bootstrap262k.zip'
 
 FETCHPARAMS='https://raw.githubusercontent.com/dk808/zelnode_script/master/fetch-params.sh'
 
@@ -117,9 +117,9 @@ rm -rf $EXTRACT_DIR
 rm -rf $WALLET_TAR_FILE
 #end downloading/cleaning up wallet
 
-wget -c -P $BOOTSTRAP
-sudo chmod zelcash-bootstrap.zip
-unzip -o ~/zelcash-bootstrap.zip -d ~/.zelcash/
+wget $BOOTSTRAP
+sudo chmod zelcash-bootstrap262k.zip
+unzip -o ~/zelcash-bootstrap262k.zip -d ~/.zelcash/
 rm -rf $BOOTSTRAP_ZIP
 echo "downloading chain params"
 wget $FETCHPARAMS
