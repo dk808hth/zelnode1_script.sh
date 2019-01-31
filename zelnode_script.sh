@@ -137,7 +137,7 @@ User=root
 Group=root
 Type=forking
 #PIDFile=~/.zelcash/$COIN_NAME.pid
-ExecStart=$COIN_PATH/$COIN_DAEMON -daemon -conf=~/.zelcash/$CONFIG_FILE -datadir=$CONFIG_FOLDER
+ExecStart=$COIN_PATH/$COIN_DAEMON -daemon -conf=~/.zelcash/$CONFIG_FILE -datadir=~/.zelcash/
 ExecStop=-$COIN_PATH/$COIN_CLI -conf=~/.zelcash/$CONFIG_FILE -datadir=~/.zelcash stop
 Restart=always
 PrivateTmp=true
@@ -173,8 +173,6 @@ sudo ufw allow $RPCPORT/tcp
 echo "Basic security completed..."
 
 echo "Restarting $COIN_NAME wallet with new configs, 30 seconds..."
-cd
-cd /user/bin/
 sudo chmod +x /usr/bin/zelcash*
 $COIN_DAEMON -daemon
 sleep 60
@@ -220,7 +218,7 @@ $COIN_DAEMON -daemon
 echo "============================================================================="
 echo "COPY THIS TO LOCAL WALLET CONFIG FILE AND REPLACE TxID and OUTPUT"
 echo "WITH THE DETAILS FROM YOUR COLLATERAL TRANSACTION"
-echo "MN1 $WANIP:$PORT $GENKEY TxID OUTPUT"
+echo "ZN1 $WANIP:$PORT $GENKEY TxID OUTPUT"
 echo "COURTESY OF ALTTANK FAM AND DK808"
 echo "============================================================================="
 sleep 1
