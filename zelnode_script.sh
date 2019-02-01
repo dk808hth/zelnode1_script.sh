@@ -218,9 +218,9 @@ sleep 30
 
 echo "Starting your ZELNODE with final details"
 
-$COIN_DAEMON -daemon
-
 figlet -t -k "WELCOME   TO   ZELNODES" |lolcat -a -S 1
+
+$COIN_DAEMON -daemon
 
 echo "============================================================================="
 echo "COPY THIS TO LOCAL WALLET CONFIG FILE AND REPLACE TxID and OUTPUT"
