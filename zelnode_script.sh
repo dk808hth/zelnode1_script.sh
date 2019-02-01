@@ -60,6 +60,7 @@ sudo apt-get install libzmq3-dev -y
 sudo apt-get install autoconf -y
 sudo apt-get install automake -y
 sudo apt-get install unzip -y
+sudo apt-get install zenity -y
 sudo apt-get install figlet toilet -y
 sudo apt-get install lolcat -y
 sudo apt-get update
@@ -129,23 +130,26 @@ sudo chmod +x fetch-params.sh
 sudo bash fetch-params.sh
 echo "Done fetching chain params"
 
+echo "Please enter username when prompted"
+user=$(zenity --entry --text 'Please enter the username:') || exit 1
 echo "Creating system service file...."
  cat << EOF > /etc/systemd/system/$COIN_NAME.service
 [Unit]
 Description=$COIN_NAME service
 After=network.target
+StartLimitIntervalSec=0
 [Service]
-User=root
-Group=root
+User=$user
+Group=$user
 Type=forking
 #PIDFile=~/.zelcash/$COIN_NAME.pid
 ExecStart=$COIN_PATH/$COIN_DAEMON -daemon -conf=~/.zelcash/$CONFIG_FILE -datadir=~/.zelcash/
 ExecStop=-$COIN_PATH/$COIN_CLI -conf=~/.zelcash/$CONFIG_FILE -datadir=~/.zelcash stop
 Restart=always
+RestartSec=1
 PrivateTmp=true
 TimeoutStopSec=60s
 TimeoutStartSec=10s
-StartLimitInterval=120s
 StartLimitBurst=5
 [Install]
 WantedBy=multi-user.target
