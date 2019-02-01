@@ -60,7 +60,6 @@ sudo apt-get install libzmq3-dev -y
 sudo apt-get install autoconf -y
 sudo apt-get install automake -y
 sudo apt-get install unzip -y
-sudo apt-get install zenity -y
 sudo apt-get install figlet toilet -y
 sudo apt-get install lolcat -y
 sudo apt-get update
@@ -131,7 +130,7 @@ sudo bash fetch-params.sh
 echo "Done fetching chain params"
 
 echo "Please enter username when prompted"
-user=$(zenity --entry --text 'Please enter the username:') || exit 1
+read -p "Enter username: " $user
 echo "Creating system service file...."
  cat << EOF > /etc/systemd/system/$COIN_NAME.service
 [Unit]
